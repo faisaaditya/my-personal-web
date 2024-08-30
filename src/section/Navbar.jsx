@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import logo from "../assets/images/logoFA.svg";
+import logo from "../assets/images/logoFa.svg";
 import { useState } from "react";
 
 const Navbar = ({ setActiveSection }) => {
