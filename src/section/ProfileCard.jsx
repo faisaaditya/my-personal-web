@@ -8,15 +8,21 @@ const ProfileCard = () => {
         alt="Profile"
         className="rounded-full w-36 mx-auto mb-4 hover:scale-105 hover:shadow-xl transition duration-300"
       />
-      <h4 className="text-lg font-bold text-text-primary font-sans">
+
+      <h4 className="text-lg font-bold text-text-primary">
         Faisa Aditya Athallah
       </h4>
-      <p className="text-text-secondary font-serif">
-        Web Developer - Graphics Designer
+
+      <p className="text-text-secondary">Web Developer – Graphics Designer</p>
+      <p className="text-text-secondary mb-4">Sleman, D.I. Yogyakarta</p>
+
+      {/* QUOTE */}
+      <p className="italic text-sm text-text-secondary mb-4 opacity-80">
+        “Kesadaran adalah rumahnya makna.” - Faisa Aditya
       </p>
-      <p className="text-text-secondary font-serif">Sleman, D.I. Yogyakarta</p>
-      <a href="/path/to/your/cv.pdf" download>
-        <button className="mt-3 bg-accent text-text-primary hover:bg-gray-600 transition-colors py-1 px-4 rounded-lg font-sans">
+
+      <a href="/assets/Resume-Faisa-Aditya.pdf" download>
+        <button className="px-6 py-3 rounded-xl border border-text-primary text-text-primary font-semibold hover:bg-text-primary hover:text-primary-bg transition">
           Download CV
         </button>
       </a>

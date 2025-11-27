@@ -1,38 +1,35 @@
 const Stats = () => {
+  const statsData = [
+    {
+      label: "Projects Completed",
+      value: "12+",
+    },
+    {
+      label: "Happy Clients",
+      value: "8+",
+    },
+    {
+      label: "Years of Experience",
+      value: "2+",
+    },
+  ];
+
   return (
-    <div className="mt-6 pb-1">
-      <div className="relative">
-        <div className="absolute "></div>
-        <div className="relative ">
-          <div className="max-w-4xl mx-auto">
-            <dl className="rounded-lg bg-primary-bg shadow-lg sm:grid sm:grid-cols-3">
-              <div className="flex flex-col border-b border-accent p-6 text-center sm:border-0 sm:border-r">
-                <dd className="order-1 text-5xl font-extrabold text-text-primary">
-                  500+
-                </dd>
-                <dt className="order-2 mt-2 text-lg leading-6 font-medium text-text-secondary">
-                  Blockchain developers
-                </dt>
-              </div>
-              <div className="flex flex-col border-t border-b border-accent p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                <dt className="order-2 mt-2 text-lg leading-6 font-medium text-text-secondary">
-                  Response rate
-                </dt>
-                <dd className="order-1 text-5xl font-extrabold text-text-primary">
-                  58%
-                </dd>
-              </div>
-              <div className="flex flex-col border-t border-accent p-6 text-center sm:border-0 sm:border-l">
-                <dt className="order-2 mt-2 text-lg leading-6 font-medium text-text-secondary">
-                  New devs a month
-                </dt>
-                <dd className="order-1 text-5xl font-extrabold text-text-primary">
-                  30+
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
+    <div className="mt-6">
+      <div className="bg-primary-bg rounded-lg shadow-lg p-6">
+        <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          {statsData.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col p-4 border border-accent rounded-lg hover:scale-105 transition-transform"
+            >
+              <dd className="text-4xl font-extrabold text-text-primary">
+                {item.value}
+              </dd>
+              <dt className="mt-2 text-lg text-text-secondary">{item.label}</dt>
+            </div>
+          ))}
+        </dl>
       </div>
     </div>
   );
