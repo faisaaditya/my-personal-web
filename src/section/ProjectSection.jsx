@@ -14,7 +14,7 @@ const projects = [
       "/src/assets/images/lca02.jpg",
       "/src/assets/images/lca03.jpg",
       "/src/assets/images/lca04.jpg",
-      "/src/assets/images/ca05.jpg",
+      "/src/assets/images/lca05.jpg",
       "/src/assets/images/lca06.jpg",
       "/src/assets/images/lca07.png",
     ],
