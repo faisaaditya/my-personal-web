@@ -1,0 +1,26 @@
+{
+  "FREE": [
+    "/projects/FREE01.png",
+    "/projects/FREE02.jpg",
+    "/projects/FREE03.png",
+    "/projects/FREE04.png",
+    "/projects/FREE05.png",
+    "/projects/FREE06.jpg",
+    "/projects/FREE07.png"
+  ],
+  "lca": [
+    "/projects/lca01.jpg",
+    "/projects/lca02.jpg",
+    "/projects/lca03.jpg",
+    "/projects/lca04.jpg",
+    "/projects/lca05.jpg",
+    "/projects/lca06.jpg",
+    "/projects/lca07.png"
+  ],
+  "portfolio": [
+    "/projects/portfolio-preview.png"
+  ],
+  "Resume": [
+    "/projects/Resume-Faisa-Aditya.pdf"
+  ]
+}
