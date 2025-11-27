@@ -22,7 +22,7 @@ const ResumeSection = () => {
           <h1 className="text-4xl font-extrabold text-text-primary">Resume</h1>
 
           <a
-            href="/src/assets/file/Resume-Faisa-Aditya.pdf"
+            href="/src/assets/images/Resume-Faisa-Aditya.pdf"
             download
             className="flex items-center gap-2 px-4 py-2 rounded-lg border border-text-primary text-text-primary font-semibold hover:bg-text-primary hover:text-primary-bg transition"
           >
