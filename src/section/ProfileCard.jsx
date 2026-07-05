@@ -73,8 +73,8 @@ const ProfileCard = ({ onNavigate }) => {
 
       <div className="mt-6 grid gap-3">
         <a
-          href="/projects/cv-FaisaAditya.pdf"
-          download
+          href="/projects/CV-FaisaAditya.pdf"
+          download="CV-FaisaAditya.pdf"
           className="inline-flex items-center justify-center gap-2 rounded-3xl border border-white/10 bg-secondary-bg px-4 py-3 text-sm font-semibold text-text-primary transition hover:bg-accent hover:text-primary-bg"
         >
           <Download className="h-4 w-4" />

@@ -63,8 +63,8 @@ const HomeSection = ({ setActiveSection }) => {
               View Projects
             </motion.button>
             <motion.a
-              href="/projects/Resume-Faisa-Aditya.pdf"
-              download
+              href="/projects/CV-FaisaAditya.pdf"
+              download="CV-FaisaAditya.pdf"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex w-full items-center justify-center rounded-3xl border border-white/10 bg-secondary-bg px-6 py-3.5 text-sm font-semibold text-text-primary transition hover:bg-white/5 sm:w-auto"

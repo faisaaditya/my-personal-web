@@ -1,4 +1,7 @@
 {
+  "CV": [
+    "/projects/CV-FaisaAditya.pdf"
+  ],
   "dual": [
     "/projects/dual-view-contrastive.svg",
     "/projects/dual-view-preview.png"
@@ -13,6 +16,7 @@
     "/projects/FREE07.png"
   ],
   "knowledgehub": [
+    "/projects/knowledgehub-ai-preview.png",
     "/projects/knowledgehub-ai.svg"
   ],
   "lca": [
@@ -28,6 +32,6 @@
     "/projects/portfolio-preview.png"
   ],
   "Resume": [
-    "/projects/cv-FaisaAditya.pdf"
+    "/projects/Resume-Faisa-Aditya.pdf"
   ]
 }
