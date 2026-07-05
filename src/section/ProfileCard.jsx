@@ -15,7 +15,7 @@ const skillsPreview = [
   "Next.js",
   "pgvector",
   "Gemini AI",
-  "React.js",
+  "React",
 ];
 
 const ProfileCard = ({ onNavigate }) => {
