@@ -1,0 +1,21 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="36" fill="#07111F"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#0F1B2E" stroke="#2D4465" stroke-width="2"/>
+  <rect x="96" y="110" width="280" height="140" rx="24" fill="#1D3557"/>
+  <rect x="420" y="110" width="684" height="140" rx="24" fill="#11253E"/>
+  <rect x="96" y="294" width="1008" height="300" rx="28" fill="url(#paint0_linear)"/>
+  <path d="M186 438C233 378 323 354 391 390C454 423 497 489 579 489C657 489 715 449 784 425C838 406 908 392 972 418" stroke="#7DD3FC" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="186" cy="438" r="18" fill="#F8FAFC"/>
+  <circle cx="390" cy="390" r="18" fill="#F8FAFC"/>
+  <circle cx="579" cy="489" r="18" fill="#F8FAFC"/>
+  <circle cx="784" cy="425" r="18" fill="#F8FAFC"/>
+  <circle cx="972" cy="418" r="18" fill="#F8FAFC"/>
+  <text x="140" y="188" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="42" font-weight="700">KnowledgeHub AI</text>
+  <text x="448" y="170" fill="#C7D2FE" font-family="Arial, sans-serif" font-size="30">RAG • Semantic Search • Vector Database</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="96" y1="294" x2="1104" y2="594" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+</svg>

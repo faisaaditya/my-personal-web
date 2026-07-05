@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Mail, MapPin, Github } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState({
     loading: false,
     success: false,
@@ -32,26 +28,23 @@ const ContactSection = () => {
 
     const autoReplyParams = {
       from_name: form.name,
-      reply_to: form.email, // wajib agar auto-reply terkirim
+      reply_to: form.email,
     };
 
-    // 1) SEND TO YOU (OWNER)
     const sendToOwner = emailjs.send(
-      "service_1bngjad", // <-- isi
-      "template_7l4tl0q", // <-- isi
+      "service_1bngjad",
+      "template_7l4tl0q",
       ownerParams,
-      "BmzZb2-3S1hOFYtUt" // <-- isi
+      "BmzZb2-3S1hOFYtUt",
     );
 
-    // 2) AUTO-REPLY BACK TO USER
     const sendAutoReply = emailjs.send(
-      "service_1bngjad", // <-- sama service
-      "template_l1hghoh", // <-- isi template khusus auto reply
+      "service_1bngjad",
+      "template_l1hghoh",
       autoReplyParams,
-      "BmzZb2-3S1hOFYtUt" // <-- isi
+      "BmzZb2-3S1hOFYtUt",
     );
 
-    // RUN BOTH PROMISES
     Promise.all([sendToOwner, sendAutoReply])
       .then(() => {
         setStatus({ loading: false, success: true, error: false });
@@ -63,97 +56,148 @@ const ContactSection = () => {
   };
 
   return (
-    <motion.div
-      className="w-full bg-gradient-to-br from-white/10 to-white/5 p-[1px] rounded-xl shadow-[0_0_25px_rgba(255,255,255,0.06)]"
+    <motion.section
+      id="contact"
+      className="mx-auto w-full rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-[1px] shadow-[0_0_25px_rgba(255,255,255,0.06)] scroll-mt-24"
       initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <div className="bg-primary-bg rounded-xl p-10">
-        {/* TITLE */}
-        <h1 className="text-4xl font-extrabold text-text-primary mb-4">
-          Contact
-        </h1>
+      <div className="rounded-3xl bg-primary-bg p-6 sm:p-8 lg:p-10">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+            Contact
+          </p>
+          <h2 className="mt-3 text-3xl font-extrabold text-text-primary sm:text-4xl">
+            Let&apos;s Build Something Together.
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-text-secondary sm:text-base">
+            Whether you&apos;re looking for a Machine Learning Engineer,
+            Fullstack Developer, or simply want to discuss AI, I&apos;d love to
+            hear from you.
+          </p>
+        </div>
 
-        <p className="text-lg text-text-secondary mb-10 max-w-xl">
-          Jika kamu memiliki pertanyaan, kebutuhan proyek, atau ingin bekerja
-          sama, silakan kirim pesan melalui form berikut.
-        </p>
+        <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-3">
+            {[
+              {
+                label: "Email",
+                value: "faisaaditya07@gmail.com",
+                icon: Mail,
+                href: "mailto:faisaaditya07@gmail.com",
+              },
+              {
+                label: "Location",
+                value: "Sleman, DI Yogyakarta",
+                icon: MapPin,
+                href: null,
+              },
+              {
+                label: "GitHub",
+                value: "https://github.com/Faisaaditya",
+                icon: Github,
+                href: "https://github.com/Faisaaditya",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              const content = (
+                <div className="flex items-center gap-3 rounded-3xl border border-white/10 bg-secondary-bg p-4 text-text-primary transition hover:bg-accent/10">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/15 text-accent">
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">{item.label}</p>
+                    <p className="text-sm text-text-secondary">{item.value}</p>
+                  </div>
+                </div>
+              );
 
-        {/* FORM */}
-        <form onSubmit={sendEmail} className="flex flex-col gap-6 max-w-md">
-          {/* NAME */}
-          <div>
-            <label className="block text-text-primary font-medium mb-1">
-              Nama
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              value={form.name}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-secondary-bg text-text-primary border border-white/10 focus:outline-none focus:border-accent transition"
-              placeholder="Nama kamu"
-            />
+              return item.href ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={item.label}>{content}</div>
+              );
+            })}
           </div>
 
-          {/* EMAIL */}
-          <div>
-            <label className="block text-text-primary font-medium mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              value={form.email}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-secondary-bg text-text-primary border border-white/10 focus:outline-none focus:border-accent transition"
-              placeholder="email@example.com"
-            />
-          </div>
-
-          {/* MESSAGE */}
-          <div>
-            <label className="block text-text-primary font-medium mb-1">
-              Pesan
-            </label>
-            <textarea
-              name="message"
-              required
-              rows="5"
-              value={form.message}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-secondary-bg text-text-primary border border-white/10 focus:outline-none focus:border-accent transition"
-              placeholder="Tulis pesanmu..."
-            ></textarea>
-          </div>
-
-          {/* BUTTON */}
-          <button
-            type="submit"
-            disabled={status.loading}
-            className="px-6 py-3 rounded-xl border border-text-primary text-text-primary font-semibold hover:bg-text-primary hover:text-primary-bg transition"
+          <form
+            onSubmit={sendEmail}
+            className="rounded-3xl border border-white/10 bg-secondary-bg/80 p-6"
           >
-            {status.loading ? "Mengirim..." : "Kirim Pesan"}
-          </button>
-
-          {/* STATUS MESSAGE */}
-          {status.success && (
-            <p className="text-green-400 font-medium">
-              ✔ Pesan berhasil terkirim!
-            </p>
-          )}
-
-          {status.error && (
-            <p className="text-red-400 font-medium">
-              ✖ Terjadi kesalahan, coba lagi.
-            </p>
-          )}
-        </form>
+            <div className="grid gap-4">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-text-primary">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  className="w-full rounded-3xl border border-white/10 bg-primary-bg px-4 py-3 text-text-primary placeholder:text-text-secondary focus:outline-none focus:border-accent"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-text-primary">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  className="w-full rounded-3xl border border-white/10 bg-primary-bg px-4 py-3 text-text-primary placeholder:text-text-secondary focus:outline-none focus:border-accent"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-text-primary">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  required
+                  rows="5"
+                  value={form.message}
+                  onChange={handleChange}
+                  className="w-full rounded-3xl border border-white/10 bg-primary-bg px-4 py-3 text-text-primary placeholder:text-text-secondary focus:outline-none focus:border-accent"
+                  placeholder="Tell me about your idea..."
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={status.loading}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-3xl border border-white/10 bg-accent px-6 py-3 text-sm font-semibold text-primary-bg transition hover:bg-accent/90 sm:w-auto"
+              >
+                {status.loading ? "Sending..." : "Send Message"}
+              </button>
+              {status.success && (
+                <p className="text-sm text-emerald-300">
+                  Message sent successfully.
+                </p>
+              )}
+              {status.error && (
+                <p className="text-sm text-red-400">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+            </div>
+          </form>
+        </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

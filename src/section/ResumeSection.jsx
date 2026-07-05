@@ -1,161 +1,189 @@
 import { motion } from "framer-motion";
-import {
-  Code2,
-  PenTool,
-  GraduationCap,
-  Wrench,
-  Download,
-  Sparkles,
-} from "lucide-react";
+import { Brain, Code2, Download, GraduationCap, Sparkles } from "lucide-react";
+
+const skillsGroups = [
+  {
+    title: "AI / Machine Learning",
+    items: [
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "Transformer",
+      "Graph Neural Network",
+      "Contrastive Learning",
+      "RAG",
+      "pgvector",
+    ],
+  },
+  {
+    title: "Fullstack Development",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "REST API",
+    ],
+  },
+  {
+    title: "Tools & Infrastructure",
+    items: ["Git", "GitHub", "Vercel", "Google Gemini API", "SQL"],
+  },
+];
 
 const ResumeSection = () => {
   return (
-    <motion.div
-      className="w-full bg-gradient-to-br from-white/10 to-white/5 p-[1px] rounded-xl shadow-[0_0_25px_rgba(255,255,255,0.06)]"
+    <motion.section
+      id="resume"
+      className="mx-auto w-full rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-[1px] shadow-[0_0_25px_rgba(255,255,255,0.06)] scroll-mt-24"
       initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <div className="bg-primary-bg rounded-xl p-10">
-        {/* HEADER + DOWNLOAD BUTTON */}
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl font-extrabold text-text-primary">Resume</h1>
-
+      <div className="rounded-3xl bg-primary-bg p-6 sm:p-8 lg:p-10">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+              Resume
+            </p>
+            <h2 className="mt-2 text-3xl font-extrabold text-text-primary sm:text-4xl">
+              An engineering-minded background with AI and product focus.
+            </h2>
+          </div>
           <a
-            href="/src/assets/images/Resume-Faisa-Aditya.pdf"
+            href="/projects/Resume-Faisa-Aditya.pdf"
             download
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-text-primary text-text-primary font-semibold hover:bg-text-primary hover:text-primary-bg transition"
+            className="inline-flex items-center justify-center gap-2 rounded-3xl border border-white/10 bg-secondary-bg px-5 py-3 text-sm font-semibold text-text-primary transition hover:bg-accent hover:text-primary-bg"
           >
-            <Download className="w-4 h-4" /> Download PDF
+            <Download className="h-4 w-4" />
+            CV
           </a>
         </div>
 
-        <div className="flex flex-col gap-10">
-          {/* SKILLS */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <Code2 className="text-accent w-6 h-6" />
-              <h2 className="text-2xl font-bold text-text-primary">Skills</h2>
-            </div>
-
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-text-secondary">
-              <li>• Frontend Development (React, Vite, Tailwind)</li>
-              <li>• UI/UX Structure & Component Thinking</li>
-              <li>• JavaScript (ES6+)</li>
-              <li>• Python (Machine Learning Basics)</li>
-              <li>• Responsive Web Design</li>
-              <li>• Version Control (Git/GitHub)</li>
-            </ul>
-          </div>
-
-          {/* DESIGN */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <PenTool className="text-accent w-6 h-6" />
-              <h2 className="text-2xl font-bold text-text-primary">
-                Design & Branding
-              </h2>
-            </div>
-
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-text-secondary">
-              <li>• T-shirt Graphic Design</li>
-              <li>• Typography-Based Artwork</li>
-              <li>• Brand Identity Exploration</li>
-              <li>• Adobe Illustrator, Photoshop</li>
-              <li>• Mockup Composition & Print-Ready Setup</li>
-            </ul>
-          </div>
-
-          {/* EXPERIENCE */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <Wrench className="text-accent w-6 h-6" />
-              <h2 className="text-2xl font-bold text-text-primary">
-                Experience
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              {/* LCA */}
-              <div>
-                <h3 className="text-xl font-semibold text-text-primary">
-                  Freelance T-Shirt Designer — LCA Dominate
-                </h3>
-                <p className="text-sm text-accent mb-1">
-                  2023 – Sekarang (2 tahun)
-                </p>
-                <p className="text-text-secondary">
-                  Membuat seri desain streetwear tipografi bold dan layout
-                  maskulin siap produksi untuk brand lokal LCA Dominate.
-                </p>
-              </div>
-
-              {/* SUPERMATCHY */}
-              <div>
-                <h3 className="text-xl font-semibold text-text-primary">
-                  Freelance Designer — Supermatchy Vendor
-                </h3>
-                <p className="text-sm text-accent mb-1">
-                  2022 – Sekarang (3 tahun)
-                </p>
-                <p className="text-text-secondary">
-                  Mendesain apparel, layout sablon, dan revisi teknis produksi
-                  untuk vendor Supermatchy.
-                </p>
-              </div>
-
-              {/* WEB DEV */}
-              <div>
-                <h3 className="text-xl font-semibold text-text-primary">
-                  Web Developer — Personal & Academic Projects
-                </h3>
-                <p className="text-sm text-accent mb-1">
-                  2021 – Sekarang (4 tahun)
-                </p>
-                <p className="text-text-secondary">
-                  Membangun projek web modern dengan React, Tailwind, dan CSS
-                  modular dengan fokus pada UI bersih dan pengalaman pengguna.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* SOFT SKILLS */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <Sparkles className="text-accent w-6 h-6" />
-              <h2 className="text-2xl font-bold text-text-primary">
-                Soft Skills
-              </h2>
-            </div>
-
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-text-secondary">
-              <li>• Communication & Collaboration</li>
-              <li>• Creative Problem Solving</li>
-              <li>• Visual Thinking</li>
-              <li>• Attention to Detail</li>
-              <li>• Time & Task Management</li>
-            </ul>
-          </div>
-
-          {/* EDUCATION */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <GraduationCap className="text-accent w-6 h-6" />
-              <h2 className="text-2xl font-bold text-text-primary">
+        <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <section className="rounded-3xl border border-white/10 bg-secondary-bg p-6">
+            <div className="flex items-center gap-3">
+              <GraduationCap className="h-5 w-5 text-accent" />
+              <h3 className="text-xl font-semibold text-text-primary">
                 Education
-              </h2>
+              </h3>
+            </div>
+            <div className="mt-5 space-y-4 border-l border-white/10 pl-5">
+              <div>
+                <p className="text-lg font-semibold text-text-primary">
+                  Universitas Amikom Yogyakarta
+                </p>
+                <p className="mt-1 text-sm text-text-secondary">
+                  Bachelor of Informatics
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  GPA 3.19 / 4.00
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  Focus: Artificial Intelligence, Machine Learning, Data Mining,
+                  Software Engineering
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-white/10 bg-secondary-bg p-6">
+            <div className="flex items-center gap-3">
+              <Sparkles className="h-5 w-5 text-accent" />
+              <h3 className="text-xl font-semibold text-text-primary">
+                Experience
+              </h3>
+            </div>
+            <div className="mt-5 space-y-4 border-l border-white/10 pl-5">
+              <div>
+                <p className="text-base font-semibold text-text-primary">
+                  Production Asset & Visual Delivery — LCA Dominate
+                </p>
+                <p className="mt-1 text-sm text-accent">2023 – Present</p>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  Managed concept execution and production design workflows, collaborating with client teams to deliver layout assets. Engineered vector patterns and typography configurations ensuring production-ready visual asset handoffs.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_0.85fr]">
+          <section className="rounded-3xl border border-white/10 bg-secondary-bg p-6">
+            <div className="flex items-center gap-3">
+              <Code2 className="h-5 w-5 text-accent" />
+              <h3 className="text-xl font-semibold text-text-primary">
+                Skills
+              </h3>
+            </div>
+            <div className="mt-5 space-y-4">
+              {skillsGroups.map((group) => (
+                <div
+                  key={group.title}
+                  className="rounded-3xl bg-primary-bg p-4 border border-white/5"
+                >
+                  <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-text-secondary">
+                    {group.title}
+                  </h4>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-text-primary hover:border-white/40 transition duration-200"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-white/10 bg-secondary-bg p-6">
+            <div className="flex items-center gap-3">
+              <Brain className="h-5 w-5 text-accent" />
+              <h3 className="text-xl font-semibold text-text-primary">
+                Leadership
+              </h3>
+            </div>
+            <div className="mt-5 space-y-4">
+              <div className="rounded-3xl bg-primary-bg p-4 border border-white/5">
+                <p className="text-base font-semibold text-text-primary">
+                  Vice Chairman
+                </p>
+                <p className="mt-1 text-sm text-text-secondary">
+                  Independence Day Committee
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  80th & 81st Indonesian Independence Day Celebration
+                </p>
+              </div>
             </div>
 
-            <p className="text-text-secondary">
-              S1 Informatika — Universitas Amikom Yogyakarta
-              <br />
-              Fokus: Web Development, Data Mining, Machine Learning
-            </p>
-          </div>
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-text-secondary">
+                Languages
+              </h4>
+              <div className="mt-3 space-y-3 text-sm text-text-secondary">
+                <div className="flex items-center justify-between rounded-3xl bg-primary-bg border border-white/5 px-4 py-3">
+                  <span>Indonesian</span>
+                  <span className="text-accent">Native</span>
+                </div>
+                <div className="flex items-center justify-between rounded-3xl bg-primary-bg border border-white/5 px-4 py-3">
+                  <span>English</span>
+                  <span className="text-accent">Intermediate</span>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

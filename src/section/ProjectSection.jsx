@@ -1,182 +1,204 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import projectsData from "../data/projects.json"; // auto loader JSON
+import { motion } from "framer-motion";
+import { ArrowUpRight, Github } from "lucide-react";
 
-// ==========================
-// PROJECT DEFINITIONS
-// ==========================
-// Kunci di sini hanya mendeskripsikan metadata, gambar di-load otomatis dari JSON
-const PROJECT_LIST = [
+const projects = [
   {
-    key: "lca",
-    title: "T-Shirt Graphics for LCA Dominate",
-    desc: "Seri desain kaos streetwear untuk brand LCA Dominate, dengan fokus pada tipografi agresif dan karakter visual maskulin.",
-    tools: "Illustrator, Typography, Streetwear Layout",
-    ratio: "aspect-square",
+    title: "KnowledgeHub-AI",
+    eyebrow: "AI / RAG · Production Product",
+    description: "AI-powered document intelligence system designed for multi-tenant internal knowledge management.",
+    problem: "Traditional text search fails to capture context, leading to manual document scanning and slow information discovery.",
+    solution: "Built a Retrieval-Augmented Generation (RAG) platform with multi-tenant secure boundaries, embedding document content into vector space to enable natural language querying with verifiable citations.",
+    technologies: [
+      "Next.js",
+      "Supabase",
+      "PostgreSQL",
+      "pgvector",
+      "Gemini AI",
+      "TypeScript",
+    ],
+    architecture: "Serverless data pipeline for PDF parsing, text chunking, and embedding generation stored in pgvector. Implemented Gemini-grounded query answering with source document highlight citations.",
+    highlights: [
+      "Vector-based semantic search with pgvector indexing",
+      "Multi-tenant security architecture for document boundaries",
+      "Gemini API LLM integration for grounded reasoning",
+      "High performance serverless indexing pipelines",
+    ],
+    // impact: "⚡ Improved information discovery speed by 80% with zero halluncination reference tracing.",
+    image: "/projects/knowledgehub-ai.svg",
+    liveUrl: "https://knowledgehub-ai-mu.vercel.app/",
+    githubUrl: "https://github.com/Faisaaditya",
   },
   {
-    key: "FREE",
-    title: "Freelance Design",
-    desc: "Desain apparel siap produksi, berfokus pada layout bersih dan identitas brand. Mencakup layout kaos siap produksi dan visual untuk kebutuhan pelanggan.",
-    tools: "Illustrator, Print-Ready Setup",
-    ratio: "aspect-square",
+    title: "Dual View Contrastive Learning (Thesis)",
+    eyebrow: "Machine Learning · Deep Learning Research",
+    description: "Sequential recommendation system using hybrid neural models with self-supervised contrastive learning.",
+    problem: "Captured user preferences in transaction sequences are highly dynamic, noisy, and subject to severe data sparsity issues.",
+    solution: "Designed a recommendation network coupling Transformer blocks (capturing long-term sequential preferences) with Graph Neural Networks (capturing global item-transition relationships) optimized via dual-view contrastive learning.",
+    technologies: [
+      "PyTorch",
+      "Transformer",
+      "GNN",
+      "MovieLens-1M",
+      "Steam",
+      "LFM1b",
+    ],
+    architecture: "Dual-encoder architecture combining GNN graphs and sequential multi-head attention. Optimized using InfoNCE loss to align representations across different augmentations.",
+    highlights: [
+      "Graph Neural Networks mapping item-to-item global interactions",
+      "Transformer self-attention layers recording sequence dynamics",
+      "Self-supervised contrastive learning framework to regularize sparsity",
+      "Benchmarked on MovieLens-1M, Steam, and LFM1b datasets",
+    ],
+    // impact: "📈 Outperformed baseline recommenders, raising HR@10 and NDCG@10 scores.",
+    image: "/projects/dual-view-contrastive.svg",
+    liveUrl: null,
+    githubUrl: "https://github.com/Faisaaditya",
   },
   {
-    key: "portfolio",
     title: "Personal Portfolio Website",
-    desc: "Website portofolio interaktif dengan animasi modern dan layout profesional.",
-    tools: "React, Tailwind, Framer Motion",
-    ratio: "aspect-video",
+    eyebrow: "Frontend Engineering · UX / UI Design",
+    description: "SaaS-landing style developer portfolio showcasing engineering impact and storytelling.",
+    problem: "Standard text-only resumes fail to demonstrate design sensitivity, interactivity, and product execution details.",
+    solution: "Developed a clean React codebase with modular components, smooth framer-motion reveals, and a scroll spy navigation overlay.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion", "EmailJS"],
+    architecture: "Component-driven React layout hosted on Vercel. Incorporates a unified state for scroll tracking (IntersectionObserver) and serverless email sending.",
+    highlights: [
+      "Framer Motion interaction and scroll-reveal system",
+      "Sticky blurred glassmorphism navigation overlays",
+      "Fully responsive responsive CSS grid layout",
+    ],
+    // impact: "⚡ Score of 100% on performance and accessibility metrics.",
+    image: "/projects/portfolio-preview.png",
+    liveUrl: "https://faisaaditya.vercel.app/",
+    githubUrl: "https://github.com/Faisaaditya",
   },
 ];
 
 const ProjectSection = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [slideIndex, setSlideIndex] = useState(0);
-
-  const openProject = (project) => {
-    const images = projectsData[project.key] || [];
-    setSelectedProject({ ...project, images });
-    setSlideIndex(0);
-  };
-
-  const nextSlide = () => {
-    setSlideIndex((prev) => (prev + 1) % selectedProject.images.length);
-  };
-
-  const prevSlide = () => {
-    setSlideIndex(
-      (prev) =>
-        (prev - 1 + selectedProject.images.length) %
-        selectedProject.images.length
-    );
-  };
-
   return (
-    <>
-      {/* ==== PROJECT SECTION WRAPPER ==== */}
-      <motion.div
-        className="w-full bg-gradient-to-br from-white/10 to-white/5 p-[1px] rounded-xl shadow-[0_0_25px_rgba(255,255,255,0.06)]"
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="bg-primary-bg rounded-xl p-10">
-          <h1 className="text-4xl font-extrabold text-text-primary mb-8">
+    <motion.section
+      id="projects"
+      className="mx-auto w-full rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-[1px] shadow-[0_0_25px_rgba(255,255,255,0.06)] scroll-mt-24"
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="rounded-3xl bg-primary-bg p-6 sm:p-8 lg:p-10">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
             Projects
-          </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {PROJECT_LIST.map((p, index) => {
-              const images = projectsData[p.key] || [];
-              if (images.length === 0) return null;
-
-              return (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.25 }}
-                  onClick={() => openProject(p)}
-                  className="cursor-pointer p-[1px] rounded-xl bg-gradient-to-br from-white/10 to-white/5 shadow-[0_0_20px_rgba(255,255,255,0.04)] hover:shadow-[0_0_35px_rgba(255,255,255,0.07)] transition"
-                >
-                  <div className="bg-secondary-bg rounded-xl overflow-hidden">
-                    <div className={`${p.ratio} w-full overflow-hidden`}>
-                      <img
-                        src={images[0]}
-                        alt={p.title}
-                        className="w-full h-full object-cover hover:scale-105 transition duration-300"
-                      />
-                    </div>
-
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-text-primary mb-2">
-                        {p.title}
-                      </h3>
-                      <p className="text-text-secondary mb-4 leading-relaxed">
-                        {p.desc}
-                      </p>
-                      <p className="text-sm text-accent">{p.tools}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+          </p>
+          <h2 className="mt-3 text-3xl font-extrabold text-text-primary sm:text-4xl">
+            Case Studies
+          </h2>
+          <p className="mt-4 text-sm text-text-secondary">
+            Detailing the problem statements, architectural solutions, and engineering outcomes.
+          </p>
         </div>
-      </motion.div>
 
-      {/* ========================== */}
-      {/* MODAL SLIDESHOW           */}
-      {/* ========================== */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              className="bg-primary-bg rounded-xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 shadow-[0_0_35px_rgba(255,255,255,0.12)] max-w-xl w-full"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.28 }}
-              onClick={(e) => e.stopPropagation()}
+        <div className="mt-8 grid gap-8 md:grid-cols-1 xl:grid-cols-2">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 * index, duration: 0.4 }}
+              whileHover={{ y: -6, scale: 1.005 }}
+              className="overflow-hidden rounded-3xl border border-white/10 bg-secondary-bg/80 hover:shadow-lg hover:shadow-white/[0.01] flex flex-col justify-between"
             >
-              <div className="bg-secondary-bg rounded-xl overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={selectedProject.images[slideIndex]}
-                    className="w-full object-cover"
-                  />
+              <div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-56 w-full object-cover border-b border-white/10"
+                />
 
-                  <button
-                    onClick={nextSlide}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 px-3 py-2 rounded-md transition"
-                  >
-                    ➤
-                  </button>
-
-                  <button
-                    onClick={prevSlide}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 px-3 py-2 rounded-md transition"
-                  >
-                    ←
-                  </button>
-
-                  <div className="absolute bottom-3 right-3 bg-black/40 text-white px-3 py-1 rounded-md text-sm">
-                    {slideIndex + 1} / {selectedProject.images.length}
+                <div className="p-5 sm:p-6 space-y-4">
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+                      {project.eyebrow}
+                    </span>
+                    <h3 className="text-2xl font-bold text-text-primary mt-1">
+                      {project.title}
+                    </h3>
                   </div>
-                </div>
 
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-text-primary mb-2">
-                    {selectedProject.title}
-                  </h2>
+                  <div className="text-sm space-y-2 border-l-2 border-accent/40 pl-3">
+                    <p className="text-text-secondary">
+                      <strong className="text-text-primary/95 text-xs font-semibold uppercase tracking-wider block mb-0.5">Problem</strong>
+                      {project.problem}
+                    </p>
+                    <p className="text-text-secondary">
+                      <strong className="text-text-primary/95 text-xs font-semibold uppercase tracking-wider block mb-0.5">Solution Approach</strong>
+                      {project.solution}
+                    </p>
+                  </div>
 
-                  <p className="text-text-secondary mb-4">
-                    {selectedProject.desc}
-                  </p>
+                  <div className="text-sm">
+                    <strong className="text-text-primary/95 text-xs font-semibold uppercase tracking-wider block mb-1">Architecture Summary</strong>
+                    <p className="text-text-secondary">{project.architecture}</p>
+                  </div>
 
-                  <p className="text-accent text-sm mb-6">
-                    Tools: {selectedProject.tools}
-                  </p>
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-white/5 bg-primary-bg px-2.5 py-1 text-xs font-medium text-text-secondary"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="px-6 py-2 rounded-lg border border-text-primary text-text-primary hover:bg-text-primary hover:text-primary-bg transition"
-                  >
-                    Tutup
-                  </button>
+                  <div className="pt-2">
+                    <strong className="text-text-primary/95 text-xs font-semibold uppercase tracking-wider block mb-2">Key Highlights</strong>
+                    <ul className="space-y-1.5 text-sm text-text-secondary">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight} className="flex gap-2 items-start">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {project.impact && (
+                    <div className="mt-3 rounded-2xl bg-white/5 border border-white/10 p-3.5 text-sm font-semibold text-text-primary">
+                      {project.impact}
+                    </div>
+                  )}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+
+              <div className="p-5 sm:p-6 pt-0 flex flex-wrap gap-3">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-3xl border border-white/10 bg-primary-bg px-4 py-2.5 text-sm font-semibold text-text-primary transition hover:bg-accent hover:text-primary-bg"
+                >
+                  <Github className="h-4 w-4" />
+                  GitHub
+                </a>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-3xl border border-white/10 bg-primary-bg px-4 py-2.5 text-sm font-semibold text-text-primary transition hover:bg-accent hover:text-primary-bg"
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </motion.section>
   );
 };
 

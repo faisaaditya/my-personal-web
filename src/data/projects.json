@@ -1,4 +1,7 @@
 {
+  "dual": [
+    "/projects/dual-view-contrastive.svg"
+  ],
   "FREE": [
     "/projects/FREE01.png",
     "/projects/FREE02.jpg",
@@ -7,6 +10,9 @@
     "/projects/FREE05.png",
     "/projects/FREE06.jpg",
     "/projects/FREE07.png"
+  ],
+  "knowledgehub": [
+    "/projects/knowledgehub-ai.svg"
   ],
   "lca": [
     "/projects/lca01.jpg",

@@ -4,44 +4,43 @@ const SocialLinks = () => {
   const links = [
     {
       name: "GitHub",
-      username: "Faisaaditya",
-      icon: <Github className="w-5 h-5" />,
+      icon: <Github className="h-5 w-5" />,
       url: "https://github.com/Faisaaditya",
     },
     {
       name: "Twitter",
-      username: "adityaAtha_",
-      icon: <Twitter className="w-5 h-5" />,
+      icon: <Twitter className="h-5 w-5" />,
       url: "https://x.com/Adityaatha_",
     },
     {
       name: "Instagram",
-      username: "faisaadityaa",
-      icon: <Instagram className="w-5 h-5" />,
+      icon: <Instagram className="h-5 w-5" />,
       url: "https://instagram.com/faisaadityaa",
     },
   ];
 
   return (
-    <div className="card mt-6 p-4 rounded-lg shadow-lg bg-primary-bg">
-      <ul className="flex flex-col gap-4">
+    <div className="rounded-3xl border border-white/10 bg-primary-bg/90 p-5 shadow-xl sm:p-6">
+      <div className="flex items-center justify-between gap-4 text-text-secondary">
+        <span className="text-sm font-semibold">Social</span>
+        <span className="text-xs uppercase tracking-[0.24em] text-white/40">
+          Follow
+        </span>
+      </div>
+      <div className="mt-4 flex justify-evenly gap-3">
         {links.map((item, idx) => (
-          <li key={idx}>
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-between items-center p-2 rounded-lg hover:bg-secondary-bg transition-colors"
-            >
-              <div className="flex items-center gap-2 text-text-primary">
-                {item.icon}
-                <h6 className="font-medium">{item.name}</h6>
-              </div>
-              <span className="text-text-secondary">{item.username}</span>
-            </a>
-          </li>
+          <a
+            key={idx}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-secondary-bg text-text-primary transition hover:bg-white/10"
+            aria-label={item.name}
+          >
+            {item.icon}
+          </a>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
