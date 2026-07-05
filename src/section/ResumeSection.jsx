@@ -55,7 +55,7 @@ const ResumeSection = () => {
             </h2>
           </div>
           <a
-            href="/projects/Resume-Faisa-Aditya.pdf"
+            href="/projects/cv-FaisaAditya.pdf"
             download
             className="inline-flex items-center justify-center gap-2 rounded-3xl border border-white/10 bg-secondary-bg px-5 py-3 text-sm font-semibold text-text-primary transition hover:bg-accent hover:text-primary-bg"
           >
