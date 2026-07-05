@@ -101,7 +101,7 @@ const ResumeSection = () => {
             <div className="mt-5 space-y-4 border-l border-white/10 pl-5">
               <div>
                 <p className="text-base font-semibold text-text-primary">
-                  Production Asset & Visual Delivery — LCA Dominate
+                  Freelance Graphic Designer
                 </p>
                 <p className="mt-1 text-sm text-accent">2023 – Present</p>
                 <p className="mt-2 text-sm leading-relaxed text-text-secondary">
