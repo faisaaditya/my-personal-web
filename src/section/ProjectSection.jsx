@@ -24,9 +24,9 @@ const projects = [
       "High performance serverless indexing pipelines",
     ],
     // impact: "⚡ Improved information discovery speed by 80% with zero halluncination reference tracing.",
-    image: "/projects/knowledgehub-ai.svg",
+    image: "/projects/knowledgehub-ai-preview.png",
     liveUrl: "https://knowledgehub-ai-mu.vercel.app/",
-    githubUrl: "https://github.com/Faisaaditya",
+    githubUrl: "https://github.com/faisaaditya/knowledgehub-ai",
   },
   {
     title: "Dual View Contrastive Learning (Thesis)",
@@ -50,9 +50,9 @@ const projects = [
       "Benchmarked on MovieLens-1M, Steam, and LFM1b datasets",
     ],
     // impact: "📈 Outperformed baseline recommenders, raising HR@10 and NDCG@10 scores.",
-    image: "/projects/dual-view-contrastive.svg",
+    image: "/projects/dual-view-preview.png",
     liveUrl: null,
-    githubUrl: "https://github.com/Faisaaditya",
+    githubUrl: "https://github.com/faisaaditya/dual-view-contrastive-learning",
   },
   {
     title: "Personal Portfolio Website",
