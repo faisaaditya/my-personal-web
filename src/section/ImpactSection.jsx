@@ -5,7 +5,7 @@ const metrics = [
 
   {
     icon: Cpu,
-    metric: "3 AI Systems",
+    metric: "AI Systems",
     title: "Built & Integrated",
     description: "Designed recommendation engines, RAG pipelines, and deep learning sequence architectures.",
     colorClass: "text-blue-400 bg-blue-500/10 border-blue-500/20",
